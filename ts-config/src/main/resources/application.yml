@@ -1,0 +1,28 @@
+### 服务端口号
+server:
+  port: 8110
+
+spring:
+  ### 服务名称
+  application:
+    name: ts-config
+  cloud:
+    config:
+      server:
+        git:
+          ### git环境地址
+          uri: https://github.com/KongGeJian/ts-config.git
+          ### 搜索目录
+          search-paths:
+            - config
+      ### 读取分支
+      label: master
+
+### 服务注册到eureka地址
+eureka:
+  instance:
+    ### 注册到Eureka的ip地址，集群需要","分割
+    hostname: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8100/eureka

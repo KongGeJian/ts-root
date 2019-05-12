@@ -1,0 +1,23 @@
+### 服务端口号
+server:
+  port: 8110
+
+### 服务名称
+spring:
+  application:
+    name: ts-user
+
+### eureka 基本信息配置
+eureka:
+  instance:
+    ### 注册到Eureka的ip地址，集群需要","分割
+    hostname: 127.0.0.1
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8100/eureka
+    ### 把自己注册到eureka上
+    register-with-eureka: true
+    ### 是否需要从eureka上获取注册信息
+    fetch-registry: true
+
+
